@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedi Index</title>
+</head>
+<body>
+    <h1>Jedi</h1>
+    <a href="/create"> Introduce a Jedi at The Index</a>
+    <ul>
+        <% Jedis.forEach((jedi) => { %>
+            <li>
+                <%= jedi.name %>
+                <!-- Form para poder enviar un POST -->
+                <!-- No es un GET, ya que no consulta información -->
+                <!-- Debería de ser un DELETE, pero utilizaremos POST (por motivos de simpleza) -->
+                <form action="/delete" method="POST">
+                    <!-- 1) La información que se va a enviar -->
+                    <input type="hidden" name="id" value="<%= jedi.id %>">
+                    <!-- 2) Botón para enviar -->
+                </form>
+            </li>
+        <% }); %> 
+    </ul>
+</body>
+</html>
